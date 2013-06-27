@@ -1,0 +1,54 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+</head>
+<body>
+
+    @if (User.Identity.IsAuthenticated) {
+
+        <div id="userInfo">
+
+            <h1>Sistema de Monitoramento de Processos</h1>
+
+            <form action="/home/logout" method="post">
+                <button>Sair</button>
+            </form>
+
+            <div id="welcome">Bem-vindo, @User.Identity.Name! </div>
+
+            <div class="clear"></div>
+
+        </div>
+        
+        <div id="menu" >
+            <form action="/admin/processos" method="get">
+                <button>Processos</button>
+            </form>
+
+            <form action="/admin/clientes" method="get">
+                <button>Clientes</button>
+            </form>
+
+            <form action="/admin/registros" method="get">
+                <button>Registros</button>
+            </form>
+
+            <div class="clear"></div>
+
+        </div>
+
+    }    
+        
+    <div id="page">
+        @RenderBody()
+    </div>
+
+    @Scripts.Render("~/bundles/jquery")
+    @RenderSection("scripts", required: false)
+</body>
+</html>

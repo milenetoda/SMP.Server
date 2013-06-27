@@ -1,0 +1,58 @@
+﻿@model List<SMP.Server.Models.Processo>
+@{
+    ViewBag.Title = "Processos";
+}
+
+<h2>Processos</h2>
+
+<h3>Novo processo</h3>
+
+<div class="novo">
+
+    <form action="/admin/processo/criar" method="post">
+        
+        <label>Nome</label>
+        <input name="nome" type="text"/>
+
+        &nbsp;&nbsp;
+
+        <button>Adicionar</button>
+
+    </form>
+
+</div>
+ 
+<h3>Lista de processos</h3>
+
+
+<table class="lista">
+
+     <tr>
+        <th>ID</th>
+        <th>Nome</th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model) 
+    {    
+        <tr>
+
+            <td style="width: 7%">@item.Id</td>
+
+            <td>@item.Nome</td>
+
+            <td style="width: 3%">
+
+                <form action="/admin/processo/remover" method="post" >
+                    <input name="nome" type="hidden" value="@item.Nome"/>
+                    <button>X</button>
+                </form>
+
+            </td>
+
+        </tr>   
+    }
+</table>
+
+
+

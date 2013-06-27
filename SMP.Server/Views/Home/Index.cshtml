@@ -1,0 +1,64 @@
+﻿@{
+    ViewBag.Title = "Sistema de Monitoramento de Processos";
+}
+
+<style>
+    h2 {
+        text-align: center;
+    }
+    #formLogin {
+        width: 300px;
+        margin: auto;
+        padding: 5px 10px 10px;
+        outline: 1px solid #aaa;
+        background: #e6e6e6;
+    }
+    label {
+        display: block;
+        margin-top: 10px;
+    }
+    input {
+        width: 293px;
+    }
+    button {
+    
+    }
+    #action {
+        padding: 10px 0 0;
+        text-align: right;
+    }
+    #page {
+            width: 930px;
+            margin: 55px auto;
+            padding: 5px 0 35px;
+            background: none;
+            min-height: 420px;
+            border: 0;
+            padding: 0 15px;
+        }
+    button {
+        padding: 3px 10px;
+    }
+</style>
+
+<h2>Sistema de Monitoramento de Processos</h2>
+
+<form id="formLogin" action="/home/login" method="post">
+
+    @Html.ValidationSummary()
+
+    <div>
+        <label>Usuário</label>
+        <input name="usuario" type="text" />
+    </div>
+
+    <div>
+        <label>Senha</label>
+        <input name="senha" type="password" />
+    </div>
+
+    <div id="action">
+        <button>Entrar</button>
+    </div>
+
+</form>
